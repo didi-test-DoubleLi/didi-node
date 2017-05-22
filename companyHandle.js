@@ -1,19 +1,6 @@
 var express = require('express');
-var app = express();
+var app = express.Router();
 
-//为了获取请求参数
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
-
-//为了映射静态文件
-app.use('/static', express.static('didi-test'));
-
-app.get('/', function (req, res) {
-    res.send('Hello World');
-    console.log(req.url);
-    var pathname=__dirname+url.parse(req.url).pathname;
-});
 
 app.delete('/delDriver',function(req,res){
     var data={code:1};
@@ -43,6 +30,31 @@ app.delete('/deleteCar',function(req,res){
     console.log("delete car:"+delNumber+" reason:"+deleteResult);
     res.send(data);
 });
-app.post('addCar',function(req,res){
-    
-})
+app.post('/addCar',function(req,res){
+    var data={code:1};
+    var params=req.body;
+    var carNumber=params.carNumber
+    , carBound=params.carBound
+    , useTime=params.useTime
+    , bindDriver=params.bindDriver;
+    console.log("add car:"+carNumber+" car bound:"+carBound+"use time:"+useTime+" bind driver name:"+bindDriver);
+    res.send(data);
+});
+
+app.post('/bindCar',function(req,res){
+    var data={code:1};
+    var params=req.body;
+    var bindCar=params.bindCar
+    , bindDriName=params.bindDriName
+    , bindDriNum=params.bindDriNum;
+    console.log("bind car:"+bindCar+" driver name:"+bindDriName+" driver num:"+bindDriNum);
+    res.send(data);
+});
+app.post('/confirmMoney',function(req,res){
+    var data={code:1};
+    var params=req.body;
+    var changeBill=params.changeBill;
+    console.log(req.cookies.userName+" change bill to "+changeBill);
+    res.send(data);
+});
+module.exports=app;

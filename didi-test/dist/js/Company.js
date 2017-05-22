@@ -218,7 +218,7 @@ $(function () {
 					if (data.code==1) {
 						alert("删除申请提交成功！");
 						console.log(deleteCar);
-					} else of(data.code==-1){
+					} else if(data.code==-1){
 						alert("请求失败，请稍后再试");
 					}
 				},
