@@ -1,0 +1,23 @@
+[
+  {
+    "companyName": "A公司",
+    "presentName": "赵经理",
+    "companyTel": "13822222222",
+    "companyEmail": "Acompany@163.com",
+    "companyAccount": "xxxxxx"
+  },
+  {
+    "companyName": "B公司",
+    "presentName": "王经理",
+    "companyTel": "13811112222",
+    "companyEmail": "Bcompany@163.com",
+    "companyAccount": "yyyyyy"
+  },
+  {
+    "companyName": "C公司",
+    "presentName": "宋经理",
+    "companyTel": "13722222222",
+    "companyEmail": "Ccompany@163.com",
+    "companyAccount": "zzzzzz"
+  }
+]

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>滴滴合作伙伴管理系统-管理员界面</title>
+    <link href="dist/css/master-bill.css" rel="stylesheet"> 
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">    
+    <script src="dist/js/jquery-3.2.0.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="dist/js/master-bill.js"></script>
+  </head>
+  <body>
+  <div class="header">
+  滴滴合作伙伴管理系统-管理员登录
+  <div class="buttons">
+  <span id = "Master">[管理员用户名]</span>
+  <button class="btn btn-default personel" ><span class = "glyphicon glyphicon-user"></span> 退出登录</button>
+</div>
+  </div>
+  <div class="thisBody">
+  <div class="leftList">
+    <ul class="nav nav-pills nav-stacked">
+    <li role="presentation"><a href="master-company.html">合作伙伴管理</a></li>   
+    <li role="presentation"><a href="master-car.html">车辆管理</a></li>
+    <li role="presentation"><a href="master-driver.html">司机管理</a></li>
+    <li role="presentation" class="active"><a href="">分账管理</a></li>
+    <li role="presentation"><a href="master-account.html">账号管理</a></li>
+    <li role="presentation"><a href="master-apply.html">申请处理</a></li>
+    </ul>
+  </div>
+  <div class="rightList">
+  <ol class="breadcrumb">
+  <li><a href="">分账管理</a></li>
+  <li class="active"><a href="">当月账单</a></li>
+  </ol>
+<!-- 账单处理 -->
+  <table class="table table-striped" id="billTable"> 
+  <thead>
+  <th>公司名称</th><th>当月金额（元）</th><th>合作伙伴处理状态</th><th>账单处理状态</th><th>详细信息</th>
+  </thead>
+  <tbody>
+  </tbody>
+  </table>
+    <nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
+<!-- 查看详细信息弹窗 -->
+  <div class="panel panel-default" id = "billPanel">
+  <div class="panel-heading">账单详细信息</div>
+  <div class="panel-body">
+  <ul class="list-group" id="panelTable">
+  <li class="list-group-item">公司名称：<span id = "comName"></span></li>
+  <li class="list-group-item">当月金额：<span id = "realBill"></span></li>
+  <li class="list-group-item">账单状态：<span id = "billState"></span></li>
+  <li class="list-group-item">申请金额：<span id = "applyBill"></span></li>
+  </ul>
+  <button type="button" class="btn btn-info" id="agree">确认付款</button>
+  <button type="button" class="btn btn-default" id="refuse">驳回申请</button>
+   </div>
+   </div>
+   </div>
+<div id="allScreen"></div>
+</html>

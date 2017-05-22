@@ -1,0 +1,58 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-image: url("bg2.png");
+}
+div.header{
+	width: 100%;
+	height: 70px;
+	padding: 15px;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	color: #646464;	
+	background-color: #d6ebff;
+	font-size: 25px;
+}
+div.buttons{
+	display: inline-block;
+	float: right;
+}
+div.buttons button{
+	width: 160px;
+	margin: 0 10px;
+}
+span#Master{
+	font-size:15px;
+	color: #969696;
+}
+div.personel{
+	display: inline-block;
+	margin-right: 20px;
+}
+div.personel li{
+	padding: 5px;
+	text-align: center;
+}
+div.thisBody{
+	position: relative;
+	margin-top:20px;
+}
+div.leftList{
+	position: absolute;
+	width: 180px;
+	text-align: center;
+}
+div.rightList{
+	position: relative;
+	margin-left: 210px;
+}
+form#changePassword{
+	width: 700px;
+	position: relative;
+	left: 500px;
+	top: 40px;
+}
+button#submitPassword{
+	width: 100px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>滴滴合作伙伴管理系统</title>
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">  
+    <link href="dist/css/login.css" rel="stylesheet">   
+    <script src="dist/js/jquery-3.2.0.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="dist/js/login.js"></script>
+  </head>
+  <body>
+  <div class="login">
+    <ul class="nav nav-tabs" id="myTab">
+    <li role="presentation" class="active" id ="company"><a href="" data-toggle="tab">合作伙伴登录</a></li>
+    <li role="presentation" id ="master"><a href="" data-toggle="tab">工作人员登录</a></li>
+    </ul>
+    <form id = "logAll">
+    <!-- 合作伙伴登录 -->
+    <div class="form-group form1">
+    <label for="companyAdmin" class="sr-only">账号</label>
+    <input type="text" class="form-control" id="companyAdmin" placeholder="用户名" name="companyAdmin">
+    </div>
+    <div class="form-group form1">
+    <label for="companyPassword" class="sr-only">密码</label>
+    <input type="password" class="form-control" id="companyPassword" placeholder="密码" name="companyPassword">
+    </div>
+
+ <!--    工作人员登录 -->
+    <div class="form-group form2">
+    <label for="masterAdmin" class="sr-only">账号</label>
+    <input type="text" class="form-control" id="masterAdmin" placeholder="用户名" name="masterAdmin">
+    </div>
+    <div class="form-group form2">
+    <label for="masterPassword" class="sr-only">密码</label>
+    <input type="password" class="form-control" id="masterPassword" placeholder="密码" name="masterPassword">
+    </div>
+    <div class="form1">
+    <button class="btn btn-info" type="button" id="loginCom">登录</button>
+    </div>
+    <div class="form2">    
+    <button class="btn btn-info" type="button" id="loginMas">登录</button>
+    </div>
+    </form>
+  </div>
+  </body>
+</html>

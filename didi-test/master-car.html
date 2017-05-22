@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>滴滴合作伙伴管理系统-管理员界面</title>
+    <link href="dist/css/master-car.css" rel="stylesheet"> 
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">    
+    <script src="dist/js/jquery-3.2.0.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="dist/js/master-car.js"></script>
+  </head>
+  <body>
+  <div class="header">
+  滴滴合作伙伴管理系统-管理员登录
+  <div class="buttons">
+  <span id = "Master">[管理员用户名]</span>
+  <button class="btn btn-default" id="newCar"><span class="glyphicon glyphicon-plus"></span> 新增车辆信息</button>
+  <button class="btn btn-default personel" ><span class = "glyphicon glyphicon-user"></span> 退出登录</button>
+</div>
+  </div>
+  <div class="thisBody">
+  <div class="leftList">
+    <ul class="nav nav-pills nav-stacked">
+    <li role="presentation"><a href="master-company.html">合作伙伴管理</a></li>    
+    <li role="presentation" class="active"><a href="">车辆管理</a></li>
+    <li role="presentation"><a href="master-driver.html">司机管理</a></li>
+    <li role="presentation"><a href="master-bill.html">分账管理</a></li>
+    <li role="presentation"><a href="master-account.html">账号管理</a></li>
+    <li role="presentation"><a href="master-apply.html">申请处理</a></li>
+    </ul>
+  </div>
+  <div class="rightList">
+  <ol class="breadcrumb">
+  <li><a href="">车辆管理</a></li>
+  <li class="active"><a href="">车辆信息列表</a></li>
+  </ol>
+  <table class="table table-striped" id="carTable"> 
+  <thead>
+  <th>车牌号码</th><th>汽车品牌</th><th>使用时间</th><th>绑定司机</th><th>操作</th>
+  </thead>
+  <tbody>
+  <td>辽B123456</td><td>大众</td><td>1年</td><td>赵司机</td><td><span class="changeCar">修改</span> <span class="deleteCar">删除</span></td>
+  </tbody>
+  </table>
+  <nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+  </div>
+<!--   新增车辆弹窗 -->
+  <div class="panel panel-default" id = "newCarPanel">
+  <div class="panel-heading">新增车辆信息</div>
+  <div class="panel-body">
+<form class="form-horizontal" id = "carForm">
+  <div class="form-group">
+    <label for="carNumber" class="col-sm-4 control-label">车牌号码</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="carNumber" name="carNumber">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="carBound" class="col-sm-4 control-label">汽车品牌</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="carBound" name="carBound">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="useTime" class="col-sm-4 control-label">使用时间</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="useTime" name="useTime">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="bindDriver" class="col-sm-4 control-label">绑定司机</label>
+    <div class="col-sm-6">
+      <input type="email" class="form-control" id="bindDriver" name="bindDriver">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-10">
+      <button type="button" class="btn btn-info" id = "submitNewCar">确定新增</button>
+    </div>
+  </div>
+</form>
+  </div>
+  </div>
+<!-- 修改车辆弹窗 -->
+<div class="panel panel-default" id = "changeCarPanel">
+<div class="panel-heading">修改车辆信息</div>
+<div class="panel-body">
+<form class="form-horizontal" id = "formChangeCar">
+  <div class="form-group">
+    <label for="changeNum" class="col-sm-4 control-label">车牌号码</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="changeNum" name="changeNum">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="changeBound" class="col-sm-4 control-label">汽车品牌</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="changeBound" name="changeBound">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="changeTime" class="col-sm-4 control-label">使用时间</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="changeTime" name="changeTime">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="changeBind" class="col-sm-4 control-label">绑定司机</label>
+    <div class="col-sm-6">
+      <input type="email" class="form-control" id="changeBind" name="changeBind">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-10">
+      <button type="button" class="btn btn-info" id = "submitChangeCar">确定修改</button>
+    </div>
+  </div>
+</form>
+  </div>
+  </div>
+  <div id = "allScreen"></div>
+  </body>
+</html>

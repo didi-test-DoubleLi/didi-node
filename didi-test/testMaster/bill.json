@@ -1,0 +1,30 @@
+[
+  {
+    "comName": "M公司",
+    "realBill": "123456",
+    "comState": "已确认",
+    "billState": "待处理",
+    "applyBill": "无"
+  },
+    {
+    "comName": "N公司",
+    "realBill": "23333",
+    "comState": "已修改",
+    "billState": "待处理",
+    "applyBill": "32222"
+  },
+    {
+    "comName": "Z公司",
+    "realBill": "123456",
+    "comState": "已确认",
+    "billState": "已处理",
+    "applyBill": "无"
+  },
+  {
+    "comName": "F公司",
+    "realBill": "5000",
+    "comState": "已修改",
+    "billState": "未处理",
+    "applyBill": "10000"
+  }
+]

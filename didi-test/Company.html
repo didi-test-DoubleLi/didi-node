@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>滴滴合作伙伴管理系统-合作伙伴界面</title>
+  <link href="dist/css/Company.css" rel="stylesheet">
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="dist/js/jquery-3.2.0.js"></script>
+  <script src="dist/js/bootstrap.min.js"></script>
+  <script src="dist/js/Company.js"></script>
+</head>
+
+<body>
+  <div class="header">
+    滴滴合作伙伴管理系统-合作伙伴登录
+    <div class="buttons">
+      <span id="Company">[公司名称]</span>
+      <button class="btn btn-default personel"><span class = "glyphicon glyphicon-user"></span> 退出登录</button>
+    </div>
+  </div>
+  <div class="thisBody">
+    <div class="leftList">
+      <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" id="car-fold"><a href="master-company.html" data-toggle="tab"><span class="glyphicon glyphicon-triangle-bottom"></span> 车辆管理</a></li>
+        <li role="presentation" class="c-fold"><a href="" data-toggle="tab">新增车辆申请</a></li>
+        <li role="presentation" class="c-fold"><a href="" data-toggle="tab">删除车辆申请</a></li>
+        <li role="presentation" id="driver-fold"><a href="" data-toggle="tab"><span class="glyphicon glyphicon-triangle-bottom"></span> 司机管理</a></li>
+        <li role="presentation" class="d-fold"><a href="" data-toggle="tab">新增司机申请</a></li>
+        <li role="presentation" class="d-fold"><a href="" data-toggle="tab">删除司机申请</a></li>
+        <li role="separator" class="divider" style="color: #f5f5f5">————————————</li>
+        <li role="presentation" id="bind-cd"><a href="" data-toggle="tab">人车绑定申请</a></li>
+        <li role="presentation" id="bill"><a href="" data-toggle="tab">分账账单申请</a></li>
+      </ul>
+    </div>
+    <div class="rightList">
+      <div id="carList">
+        <ol class="breadcrumb">
+          <li><a href="">车辆管理</a></li>
+          <li class="active"><a href="">车辆信息列表</a></li>
+        </ol>
+        <table class="table table-striped" id="carTable">
+          <thead>
+            <th>车牌号码</th>
+            <th>汽车品牌</th>
+            <th>使用时间</th>
+            <th>绑定司机</th>
+          </thead>
+          <tbody>
+            <tr>
+            </tr>
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <li>
+              <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div id="driverList">
+        <ol class="breadcrumb">
+          <li><a href="">司机管理</a></li>
+          <li class="active"><a href="">司机信息列表</a></li>
+        </ol>
+        <table class="table table-striped" id="driverTable">
+          <thead>
+            <th>照片</th>
+            <th>姓名</th>
+            <th>司机编号</th>
+            <th>联系方式</th>
+            <th>所在城市</th>
+            <th>服务分</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="dist/image/pre.png"></td>
+              <td>张司机</td>
+              <td>123456</td>
+              <td>13600000000</td>
+              <td>上海</td>
+              <td>80</td>
+            </tr>
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <li>
+              <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!--   新增车辆表单 -->
+      <div id="carChn">
+        <ol class="breadcrumb">
+          <li><a href="">车辆管理</a></li>
+          <li class="active"><a href="">新增车辆申请</a></li>
+        </ol>
+        <form class="form-horizontal" id="addCar">
+          <div class="form-group">
+            <label for="carNumber" class="col-sm-4 control-label">车牌号码</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="carNumber" name="carNumber">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="carBound" class="col-sm-4 control-label">汽车品牌</label>
+            <div class="col-sm-4">
+              <input type="email" class="form-control" id="carBound" name="carBound">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="useTime" class="col-sm-4 control-label">使用时间</label>
+            <div class="col-sm-4">
+              <input type="email" class="form-control" id="useTime" name="useTime">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bindDriver" class="col-sm-4 control-label">绑定司机</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="bindDriver" name="bindDriver">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4">
+              <button type="button" class="btn btn-info" id="submitNewCar">提交申请</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--   删除车辆表单 -->
+      <div id="carDel">
+        <ol class="breadcrumb">
+          <li><a href="">车辆管理</a></li>
+          <li class="active"><a href="">删除车辆申请</a></li>
+        </ol>
+        <form class="form-horizontal" id="deleteCar">
+          <div class="form-group">
+            <label for="delNumber" class="col-sm-4 control-label">车牌号码</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="delNumber" name="delNumber">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="deleteResult" class="col-sm-4 control-label">删除原因</label>
+            <div class="col-sm-4">
+              <textarea class="form-control" id="deleteResult" name="deleteResult"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4">
+              <button type="button" class="btn btn-info" id="submitdeleteCar">提交申请</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--   新增司机表单 -->
+      <div id="driverChn">
+        <ol class="breadcrumb">
+          <li><a href="">司机管理</a></li>
+          <li class="active"><a href="">新增司机申请</a></li>
+        </ol>
+        <form class="form-horizontal" id="addDriver">
+          <div class="form-group">
+            <label for="driverPhoto" class="col-sm-4 control-label">照片</label>
+            <div class="col-sm-4">
+              <img src="dist/image/pre.png" alt="..." class="img-thumbnail">
+              <input type="file" id="driverPhoto" name="driverPhoto">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="driverName" class="col-sm-4 control-label">姓名</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="driverName" name="driverName">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="driverNum" class="col-sm-4 control-label">司机编号</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="driverNum" name="driverNum">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="driverTel" class="col-sm-4 control-label">联系方式</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="driverTel" name="driverTel">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="driverCity" class="col-sm-4 control-label">所在城市</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="driverCity" name="driverCity">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4">
+              <button type="button" class="btn btn-info" id="submitNewDriver">提交申请</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--   删除司机表单 -->
+      <div id="driverDel">
+        <ol class="breadcrumb">
+          <li><a href="">司机管理</a></li>
+          <li class="active"><a href="">删除司机申请</a></li>
+        </ol>
+        <form class="form-horizontal" id="deleteDriver">
+          <div class="form-group">
+            <label for="delName" class="col-sm-4 control-label">姓名</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="delName" name="delName">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="delDriverNum" class="col-sm-4 control-label">司机编号</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="delDriverNum" name="delDriverNum">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="deleteDriResult" class="col-sm-4 control-label">删除原因</label>
+            <div class="col-sm-4">
+              <textarea class="form-control" id="deleteDriResult" name="deleteDriResult"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4">
+              <button type="button" class="btn btn-info" id="submitdeleteDriver">提交申请</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--   人车绑定表单 -->
+      <div id="bindCD">
+        <ol class="breadcrumb">
+          <li class="active"><a href="">人车绑定</a></li>
+        </ol>
+        <form class="form-horizontal" id="bind">
+          <div class="form-group">
+            <label for="bindCar" class="col-sm-4 control-label">车牌号码</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="bindCar" name="bindCar">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bindDriName" class="col-sm-4 control-label">司机姓名</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="bindDriName" name="bindDriName">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bindDriNum" class="col-sm-4 control-label">司机编号</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="bindDriNum" name="bindDriNum">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4">
+              <button type="button" class="btn btn-info" id="submitBind">提交申请</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--   分账表单 -->
+      <div id="billCheck">
+        <ol class="breadcrumb">
+          <li><a href="">分账账单申请</a></li>
+          <li class="active"><a href="">查看当月账单</a></li>
+        </ol>
+        <ul class="list-group">
+          <li class="list-group-item">公司名称： <span id="companyName">XX公司</span></li>
+          <li class="list-group-item">当月金额： <span id="monthBill">52344</span>（元）</li>
+          <li class="list-group-item">账单状态： <span id="billState">未处理</span></li>
+          <li class="list-group-item">修改金额： <span id="changeMoney">暂无</span>（元）</li>
+        </ul>
+        <div id="buttonGroup">
+          <button type="button" class="btn btn-info" id="submitChangeBill">申请修改</button>
+          <button type="button" class="btn btn-default" id="submitmonthBill">确认账单</button>
+        </div>
+      </div>
+    </div>
+    <!-- 修改车辆弹窗 -->
+    <div class="panel panel-default" id="billPanel">
+      <div class="panel-heading">申请修改账单</div>
+      <div class="panel-body">
+        <form class="form-horizontal" id="applyChange">
+          <div class="form-group">
+            <label for="changeBill" class="col-sm-4 control-label">申请金额</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="changeBill" name="changeBill">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4">
+              <button type="button" class="btn btn-info" id="submitChange">确定修改</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="allScreen"></div>
+</body>
+
+</html>

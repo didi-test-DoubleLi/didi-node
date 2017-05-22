@@ -1,0 +1,23 @@
+[
+  {
+    "applyType": "新增司机申请",
+    "applyCom": "F公司",
+    "applyTime": "2017/5/22",
+    "dealState": "未处理",
+    "applyContent": "新增司机姓名：张司机；新增司机编号：2222333"
+  },
+  {
+    "applyType": "删除车辆申请",
+    "applyCom": "M公司",
+    "applyTime": "2017/5/20",
+    "dealState": "未处理",
+    "applyContent": "新增车牌号码：辽K123456；使用时间：2年"
+  },
+  {
+    "applyType": "人车绑定申请",
+    "applyCom": "N公司",
+    "applyTime": "2017/5/22",
+    "dealState": "未处理",
+    "applyContent": "绑定司机编号：102030；车牌号码：辽C123456"
+  }
+]

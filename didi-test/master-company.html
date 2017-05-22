@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>滴滴合作伙伴管理系统-管理员界面</title>
+    <link href="dist/css/master-company.css" rel="stylesheet"> 
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">    
+    <script src="dist/js/jquery-3.2.0.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="dist/js/master-company.js"></script>
+  </head>
+  <body>
+  <div class="header">
+  滴滴合作伙伴管理系统-管理员登录
+  <div class="buttons">
+  <span id = "Master">[管理员用户名]</span>
+  <button class="btn btn-default" id="newCompany"><span class="glyphicon glyphicon-plus"></span> 新增合作伙伴</button>
+  <button class="btn btn-default personel" ><span class = "glyphicon glyphicon-user"></span> 退出登录</button>
+</div>
+  </div>
+  <div class="thisBody">
+  <div class="leftList">
+    <ul class="nav nav-pills nav-stacked">
+    <li role="presentation" class="active"><a href="">合作伙伴管理</a></li>    
+    <li role="presentation"><a href="master-car.html">车辆管理</a></li>
+    <li role="presentation"><a href="master-driver.html">司机管理</a></li>
+    <li role="presentation"><a href="master-bill.html">分账管理</a></li>
+    <li role="presentation"><a href="master-account.html">账号管理</a></li>
+    <li role="presentation"><a href="master-apply.html">申请处理</a></li>
+    </ul>
+  </div>
+  <div class="rightList">
+  <ol class="breadcrumb">
+  <li><a href="">合作伙伴管理</a></li>
+  <li class="active"><a href="">合作伙伴信息列表</a></li>
+  </ol>
+  <table class="table table-striped" id="companyTable"> 
+  <thead>
+  <th>公司名称</th><th>对接人姓名</th><th>联系方式</th><th>公司邮箱</th><th>对公账户</th><th>操作</th>
+  </thead>
+  <tbody>
+  <tr>
+  <td>中国联通</td><td>王经理</td><td>13811111111</td><td>wang@163.com</td><td>xxxxxxxx</td><td><span class="changeCom">修改</span><span class="deleteCom"> 删除</span></td>
+  </tr>
+  </tbody>
+  </table>
+    <nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+  </div>
+<!--   新增合作伙伴弹窗 -->
+  <div class="panel panel-default" id = "newPanel">
+  <div class="panel-heading">新增合作伙伴</div>
+  <div class="panel-body">
+<form class="form-horizontal" id = "formNew">
+  <div class="form-group">
+    <label for="companyName" class="col-sm-4 control-label">公司名称</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="companyName" name="companyName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="presentName" class="col-sm-4 control-label">对接人姓名</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="presentName" name="presentName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="companyTel" class="col-sm-4 control-label">联系方式</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="companyTel" name="companyTel">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="companyEmail" class="col-sm-4 control-label">公司邮箱</label>
+    <div class="col-sm-6">
+      <input type="email" class="form-control" id="companyEmail" name="companyEmail">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="companyAccount" class="col-sm-4 control-label">对公账户</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="companyAccount" name="companyAccount">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-10">
+      <button type="button" class="btn btn-info" id = "submitNew">确定新增</button>
+    </div>
+  </div>
+</form>
+  </div>
+  </div>
+  <!--   修改合作伙伴弹窗 -->
+  <div class="panel panel-default" id = "changePanel">
+  <div class="panel-heading">修改合作伙伴</div>
+  <div class="panel-body">
+<form class="form-horizontal" id = "formChange">
+  <div class="form-group">
+    <label for="changeName" class="col-sm-4 control-label">公司名称</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="changeName" name="changeName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="changePre" class="col-sm-4 control-label">对接人姓名</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="changePre" name="changePre">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="changeTel" class="col-sm-4 control-label">联系方式</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="changeTel" name="changeTel">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="changeEmail" class="col-sm-4 control-label">公司邮箱</label>
+    <div class="col-sm-6">
+      <input type="email" class="form-control" id="changeEmail" name="changeEmail">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="changeAccount" class="col-sm-4 control-label">对公账户</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="changeAccount" name="changeAccount">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-10">
+      <button type="button" class="btn btn-info" id = "submitChange">确定修改</button>
+    </div>
+  </div>
+</form>
+  </div>
+  </div>
+  <div id = "allScreen"></div>
+  </body>
+</html>

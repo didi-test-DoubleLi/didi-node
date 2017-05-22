@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>滴滴合作伙伴管理系统-管理员界面</title>
+    <link href="dist/css/master-driver.css" rel="stylesheet"> 
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">    
+    <script src="dist/js/jquery-3.2.0.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="dist/js/master-driver.js"></script>
+  </head>
+  <body>
+  <div class="header">
+  滴滴合作伙伴管理系统-管理员登录
+  <div class="buttons">
+  <span id = "Master">[管理员用户名]</span>
+  <button class="btn btn-default" id="newDriver"><span class="glyphicon glyphicon-plus"></span> 新增司机信息</button>
+  <button class="btn btn-default personel" ><span class = "glyphicon glyphicon-user"></span> 退出登录</button>
+</div>
+  </div>
+  <div class="thisBody">
+  <div class="leftList">
+    <ul class="nav nav-pills nav-stacked">
+    <li role="presentation"><a href="master-company.html">合作伙伴管理</a></li>   
+    <li role="presentation"><a href="master-car.html">车辆管理</a></li>
+    <li role="presentation" class="active"><a href="">司机管理</a></li>
+    <li role="presentation"><a href="master-bill.html">分账管理</a></li>
+    <li role="presentation"><a href="master-account.html">账号管理</a></li>
+   <li role="presentation"><a href="master-apply.html">申请处理</a></li>
+    </ul>
+  </div>
+  <div class="rightList">
+  <ol class="breadcrumb">
+  <li><a href="">司机管理</a></li>
+  <li class="active"><a href="">司机信息列表</a></li>
+  </ol>
+  <table class="table table-striped" id="driverTable"> 
+  <thead>
+  <th>照片</th><th>姓名</th><th>司机编号</th><th>联系方式</th><th>所在城市</th><th>服务分</th><th>操作</th>
+  </thead>
+  <tbody>
+  <tr>
+  <td><img src="dist/image/pre.png"></td><td>张某</td><td>1234567</td><td>13822222222</td><td>北京</td><td>暂无</td><td><span class="changeDri">修改</span> <span class="deleteDri">删除</span></td>
+  </tr>
+  </tbody>
+  </table>
+    <nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+  </div>
+<!--   新增司机弹窗 -->
+  <div class="panel panel-default" id = "newDriverPanel">
+  <div class="panel-heading">新增司机信息</div>
+  <div class="panel-body">
+<form class="form-horizontal" id = "driverForm">
+  <div class="form-group">
+    <label for="driverPhoto" class="col-sm-4 control-label">照片</label>
+    <div class="col-sm-6">
+    <img src="dist/image/pre.png" alt="..." class="img-thumbnail">
+    <input type="file" id="driverPhoto" name = "driverPhoto">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="driverName" class="col-sm-4 control-label">姓名</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="driverName" name="driverName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="driverNum" class="col-sm-4 control-label">司机编号</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="driverNum" name="driverNum">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="driverTel" class="col-sm-4 control-label">联系方式</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="driverTel" name="driverTel">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="driverCity" class="col-sm-4 control-label">所在城市</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="driverCity" name="driverCity">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-10">
+      <button type="button" class="btn btn-info" id = "submitNewDriver">确定新增</button>
+    </div>
+  </div>
+</form>
+  </div>
+  </div>
+  <!--修改车辆弹窗 -->
+  <div class="panel panel-default" id = "changeDriverPanel">
+  <div class="panel-heading">修改司机信息</div>
+  <div class="panel-body">
+<form class="form-horizontal" id="formChangeDri">
+  <div class="form-group">
+    <label for="changePhoto" class="col-sm-4 control-label">照片</label>
+    <div class="col-sm-6">
+    <img src="dist/image/pre.png" alt="..." class="img-thumbnail">
+    <input type="file" id="changePhoto" name="changePhoto">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="changeDriName" class="col-sm-4 control-label">姓名</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="changeDriName" name="changeDriName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="changeDriNum" class="col-sm-4 control-label">司机编号</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="changeDriNum" name="changeDriNum">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="changeDriTel" class="col-sm-4 control-label">联系方式</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="changeDriTel" name="changeDriTel">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="changeCity" class="col-sm-4 control-label">所在城市</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="changeCity" name="changeCity">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-10">
+      <button type="button" class="btn btn-info" id = "submitChangeDriver">确定修改</button>
+    </div>
+  </div>
+</form>
+  </div>
+  </div>
+  <div id = "allScreen"></div>
+  </body>
+</html>
