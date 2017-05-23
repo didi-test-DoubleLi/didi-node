@@ -6,14 +6,14 @@
     "billState": "待处理",
     "applyBill": "无"
   },
-    {
+  {
     "comName": "N公司",
     "realBill": "23333",
     "comState": "已修改",
     "billState": "待处理",
     "applyBill": "32222"
   },
-    {
+  {
     "comName": "Z公司",
     "realBill": "123456",
     "comState": "已确认",

@@ -56,12 +56,12 @@ $("#submitNewDriver").click(function(){
 	}else{
 		var driverForm = $('#driverForm').serializeArray();
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
+			type:"post",
+			url:"/addDriver",
 			data:driverForm,
 			dataType:'json',
-			success:function(){
-			if(true){
+			success:function(data){
+			if(data.code==1){
 				alert("司机增加成功！");
 				$("#newDriverPanel").css("display","none");
 				$("#allScreen").css("display","none");
@@ -70,7 +70,7 @@ $("#submitNewDriver").click(function(){
 				$("#driverTable").append(index);
 				console.log(driverForm);
 				$("input").val("");						
-			}else{
+			}else if(data.code==-1){
 					alert("请求失败，请稍后再试");
 				}
 			},
@@ -87,12 +87,12 @@ $("#driverTable").on("click","span.deleteDri",function(){
 	if(con){
 		var delMessage = "delDriver:"+$(this).closest('tr').children()[2].innerHTML;//获取删除司机的编号
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
-			data:delMessage,
+			type:"delete",
+			url:"/master/delDriver",
+			data:{"delNumber":delMessage},
 			dataType:'json',
-			success:function(){
-			if(true){
+			success:function(data){
+			if(data.code==1){
 				del.remove();
 				console.log(delMessage);						
 				}else{
@@ -141,12 +141,12 @@ $("#driverTable").on("click","span.changeDri",function(){
 	}else{
 		var formChangeDri = $('#formChangeDri').serializeArray();
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
+			type:"post",
+			url:"/master/motifyDriver",
 			data:formChangeDri,
 			dataType:'json',
-			success:function(){
-			if(true){
+			success:function(data){
+			if(data.code==1){
 				alert("修改成功！");
 				console.log(formChangeDri);			
 				that.replaceWith("<tr><td>"+changePhoto+"</td><td>"+changeDriName+"</td><td>"+changeDriNum+"</td><td>"
@@ -154,7 +154,7 @@ $("#driverTable").on("click","span.changeDri",function(){
 				$("#changeDriverPanel").css("display","none");
 				$("#allScreen").css("display","none");
 				$("input").val("");					
-				}else{
+				}else if(data.code==-1){
 					alert("请求失败，请稍后再试");
 				}
 			},

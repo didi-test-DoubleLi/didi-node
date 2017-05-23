@@ -54,12 +54,12 @@ $(function(){
 	$('#agree').click(function(){
 		var agree ="comName:"+$('#comName').html()+","+"applyBill:"+$('#applyBill').html();//获取申请公司的名字
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
+			type:"post",
+			url:"/master/agreeBill",
 			data:agree,
 			dataType:'json',
-			success:function(){
-				if(true){
+			success:function(data){
+				if(data){
 					$('#billPanel').css("display","none");
 					$('#allScreen').css("display","none");
 					that.children()[3].innerHTML= "已付款";
@@ -77,12 +77,12 @@ $(function(){
 	$('#refuse').click(function(){
 		var refuse ="refuseCom:"+$('#comName').html()+","+"applyBill:"+$('#applyBill').html();//获取申请公司的名字
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
+			type:"post",
+			url:"/master/refuseBill",
 			data:refuse,
 			dataType:'json',
-			success:function(){
-				if(true){
+			success:function(data){
+				if(data){
 					$('#billPanel').css("display","none");
 					$('#allScreen').css("display","none");
 					that.children()[3].innerHTML= "驳回确认";

@@ -1,0 +1,29 @@
+{
+  "name": "didi-node",
+  "version": "1.0.0",
+  "description": "a test project",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.3",
+    "multer": "^1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/didi-test-DoubleLi/didi-node.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "double-li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/didi-test-DoubleLi/didi-node/issues"
+  },
+  "homepage": "https://github.com/didi-test-DoubleLi/didi-node#readme"
+}

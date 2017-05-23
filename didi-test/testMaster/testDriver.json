@@ -4,20 +4,26 @@
     "driverNum": "123456",
     "driverTel": "13822222222",
     "driverCity": "上海",
-    "driverPoint": "90"
+    "driverPoint": "90",
+    "bindCar":"",
+    "status":0
   },
   {
     "driverName": "赵司机",
     "driverNum": "234567",
     "driverTel": "13821112222",
     "driverCity": "北京",
-    "driverPoint": "70"
+    "driverPoint": "70",
+    "bindCar":"",
+    "status":0
   },
     {
     "driverName": "王司机",
     "driverNum": "456789",
     "driverTel": "13822222111",
     "driverCity": "广州",
-    "driverPoint": "80"
+    "driverPoint": "80",
+    "bindCar":"",
+    "status":0
   }
 ]

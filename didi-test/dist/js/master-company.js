@@ -59,12 +59,12 @@ $("#submitNew").click(function(){
 	else{
 		var formNew = $('#formNew').serializeArray();
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
+			type:"post",
+			url:"/master/addCompany",
 			data:formNew,
 			dataType:'json',
-			success:function(){
-			if(true){
+			success:function(data){
+			if(data.code==1){
 				alert("合作伙伴增加成功！");
 				$("#newPanel").css("display","none");
 				$("#allScreen").css("display","none");
@@ -73,7 +73,7 @@ $("#submitNew").click(function(){
 				$("#companyTable").append(index);
 				console.log(formNew);
 				$("input").val("");						
-			}else{
+			}else if(data.code==-1){
 					alert("请求失败，请稍后再试");
 				}
 			},
@@ -90,15 +90,15 @@ $("#companyTable").on("click","span.deleteCom",function(){
 	if(con){
 		var delMessage = "delMessage:"+$(this).closest('tr').children()[0].innerHTML;//获取删除公司的名字
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
-			data:delMessage,
+			type:"post",
+			url:"/master/delCompany",
+			data:{"companyName":delMessage},
 			dataType:'json',
-			success:function(){
-			if(true){
+			success:function(data){
+			if(data.code==1){
 				del.remove();
 				console.log(delMessage);						
-				}else{
+				}else if(data.code==-1){
 					alert("请求失败，请稍后再试");
 				}
 			},
@@ -142,12 +142,12 @@ $("#companyTable").on("click","span.changeCom",function(){
 	}else{
 		var formChange = $('#formChange').serializeArray();
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
+			type:"post",
+			url:"/master/motifyCompany",
 			data:formChange,
 			dataType:'json',
-			success:function(){
-			if(true){
+			success:function(data){
+			if(data.code==1){
 				alert("修改成功！");
 				console.log(formChange);		
 				that.replaceWith("<tr><td>"+changeName+"</td><td>"+changePre+"</td><td>"+changeTel+"</td><td>"
@@ -155,7 +155,7 @@ $("#companyTable").on("click","span.changeCom",function(){
 				$("#changePanel").css("display","none");
 				$("#allScreen").css("display","none");
 				$("input").val("");						
-				}else{
+				}else if(data.code==-1){
 					alert("请求失败，请稍后再试");
 				}
 			},

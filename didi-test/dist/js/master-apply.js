@@ -51,12 +51,12 @@ $(function(){
 	$('#agree').click(function(){
 		var agree ="applyType:"+$('#applyType').html()+","+"applyCom:"+$('#applyCom').html()+","+"applyContent:"+$('#applyContent').html();//获取申请公司的名字
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
+			type:"post",
+			url:"/master/agreeApply",
 			data:agree,
 			dataType:'json',
-			success:function(){
-				if(true){
+			success:function(data){
+				if(data){
 					$('#applyPanel').css("display","none");
 					$('#allScreen').css("display","none");
 					that.children()[3].innerHTML= "已通过";
@@ -74,12 +74,12 @@ $(function(){
 	$('#refuse').click(function(){
 		var refuse ="refuseType:"+$('#applyType').html()+","+"refuseCom:"+$('#applyCom').html()+","+"refuseContent:"+$('#applyContent').html();
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
+			type:"post",
+			url:"/master/refuseApply",
 			data:refuse,
 			dataType:'json',
-			success:function(){
-				if(true){
+			success:function(data){
+				if(data){
 					$('#applyPanel').css("display","none");
 					$('#allScreen').css("display","none");
 					that.children()[3].innerHTML= "已拒绝";

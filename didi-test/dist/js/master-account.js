@@ -10,14 +10,16 @@ $(function(){
 			}else{
 				var account = $('#changePassword').serializeArray();
 				$.ajax({
-					type:"get",
-					url:"https://www.weibangong.com/weadmin/inner",
+					type:"post",
+					url:"/master/changePwd",
 					data:account,
 					dataType:'json',
-					success:function(){
-						if(true){
+					success:function(data){
+						if(data.code==1){
 							alert("密码修改成功！");
 							console.log(account);						
+						}else if(data.code==-1){
+							alert("密码修改失败，旧密码不正确！");
 						}else{
 							alert("请求失败，请稍后再试");
 						}

@@ -55,12 +55,12 @@ $("#submitNewCar").click(function(){
 	}else{
 		var carForm = $('#carForm').serializeArray();
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
+			type:"post",
+			url:"/addCar",
 			data:carForm,
 			dataType:'json',
-			success:function(){
-			if(true){
+			success:function(data){
+			if(data.code==1){
 				alert("车辆增加成功！");
 				$("#newCarPanel").css("display","none");
 				$("#allScreen").css("display","none");
@@ -69,7 +69,7 @@ $("#submitNewCar").click(function(){
 				$("#carTable").append(index);
 				console.log(carForm);
 				$("input").val("");						
-			}else{
+			}else if(data.code==-1){
 					alert("请求失败，请稍后再试");
 				}
 			},
@@ -86,15 +86,15 @@ $("#carTable").on("click","span.deleteCar",function(){
 	if(con){
 		var delMessage = "delCar:"+$(this).closest('tr').children()[0].innerHTML;
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
-			data:delMessage,
+			type:"delete",
+			url:"/master/delCar",
+			data:{"delNumber":delMessage},
 			dataType:'json',
-			success:function(){
-			if(true){
+			success:function(data){
+			if(data.code==1){
 				del.remove();
 				console.log(delMessage);						
-				}else{
+				}else if(data.code==-1){
 					alert("请求失败，请稍后再试");
 				}
 			},
@@ -135,12 +135,12 @@ $("#carTable").on("click","span.changeCar",function(){
 	}else{
 		var formChangeCar = $('#formChangeCar').serializeArray();
 		$.ajax({
-			type:"get",
-			url:"https://www.weibangong.com/weadmin/inner",
+			type:"post",
+			url:"/master/motifyCar",
 			data:formChangeCar,
 			dataType:'json',
-			success:function(){
-			if(true){
+			success:function(data){
+			if(data.code==1){
 				alert("修改成功！");
 				that.replaceWith("<tr><td>"+changeNum+"</td><td>"+changeBound+"</td><td>"+changeTime+"</td><td>"
 				+changeBind+"</td><td><span class='changeCar'>修改</span> <span class='deleteCar'>删除</span></td></tr>");
@@ -148,7 +148,7 @@ $("#carTable").on("click","span.changeCar",function(){
 				$("#allScreen").css("display","none");
 				$("input").val("");				
 				console.log(formChangeCar);						
-				}else{
+				}else if(data.code==-1){
 					alert("请求失败，请稍后再试");
 				}
 			},

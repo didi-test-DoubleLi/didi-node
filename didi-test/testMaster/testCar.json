@@ -3,18 +3,21 @@
     "carNumber": "辽B12345",
     "carBound": "大众",
     "useTime": "3年",
-    "bindDriver": "张司机"
+    "bindDriver": "张司机",
+    "status":0
   },
     {
     "carNumber": "辽C12345",
     "carBound": "尼桑",
     "useTime": "1年",
-    "bindDriver": "王司机"
+    "bindDriver": "王司机",
+    "status":0
   },
     {
     "carNumber": "辽A12345",
     "carBound": "三菱",
     "useTime": "2年",
-    "bindDriver": "赵司机"
+    "bindDriver": "赵司机",
+    "status":0
   }
 ]
