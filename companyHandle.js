@@ -2,13 +2,15 @@ var express = require('express');
 var app = express.Router();
 
 var json=require('./json.js');
+var cars=json.cars;
+var drivers=json.drivers;
 
 
 app.delete('/delDriver',function(req,res){
     var data={code:1};
     var params=req.body;
     var delName=params.delName;
-    json.drivers.find(driver=>{driver.driverName==delName}).status=-1;
+    drivers.find(driver=>{ return driver.driverName==delName}).status=-1;
     //, delDriverNum=params.delDriverNum
     //, deleteDriResult=params.deleteDriResult;
     console.log("del driver: "+delName);
@@ -38,10 +40,10 @@ app.delete('/deleteCar',function(req,res){
     var data={code:1};
     var params=req.body;
     var delNumber=params.delNumber;
-    json.cars.find(car=>{
-        car.carNumber==delNumber;
-    }).status=-1;
-
+    var car=cars.find(car=>{
+        return car.carNumber==delNumber;
+    });
+    car.status=-1;
     //, deleteResult=params.deleteDriResult;
     console.log("delete car:"+delNumber);
     res.send(data);
@@ -53,7 +55,7 @@ app.post('/addCar',function(req,res){
     , carBound=params.carBound
     , useTime=params.useTime
     , bindDriver=params.bindDriver;
-    json.cars.push({
+    cars.push({
         "carNumber": carNumber,
         "carBound": carBound,
         "useTime": useTime,
@@ -71,12 +73,12 @@ app.post('/bindCar',function(req,res){
     var bindCar=params.bindCar
     , bindDriName=params.bindDriName
     , bindDriNum=params.bindDriNum;
-    var driver=json.drivers.find(x=>{x.driverName==bindDriName});
+    var driver=json.drivers.find(x=>{ return x.driverName==bindDriName});
     if(bindCar==undefined || bindCar== ''){
         driver.bindCar="";
     }else if(driver.bindCar && driver.bindCar!=""){
         data.code=-1;
-    }else if(json.cars.find(x=>{x.carNumber==bindCar})){
+    }else if(json.cars.find(x=>{return x.carNumber==bindCar})){
         driver.bindCar=bindCar;
         console.log(json.drivers);
     }
@@ -89,5 +91,24 @@ app.post('/confirmMoney',function(req,res){
     var changeBill=params.changeBill;
     console.log(req.cookies.userName+" change bill to "+changeBill);
     res.send(data);
+});
+app.get('/', function (req, res) {
+    res.send('Hello World');
+    res.send();
+});
+app.get('/apply.json',(req,res)=>{
+    res.send(json.apply);
+});
+app.get('/bill.json',(req,res)=>{
+    res.send(json.bill);
+});
+app.get('/testCar.json',(req,res)=>{
+    res.send(cars);
+});
+app.get('/testDriver.json',(req,res)=>{
+    res.send(drivers);
+});
+app.get('/company.json',(req,res)=>{
+    res.send(json.company);
 });
 module.exports=app;

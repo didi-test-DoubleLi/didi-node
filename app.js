@@ -4,8 +4,6 @@ var login=require('./login.js');
 var companyHandle=require('./companyHandle.js');
 var masterHandle=require('./masterHandle.js');
 
-var json=require('./json.js');
-
 
 //为了获取请求参数
 var bodyParser = require('body-parser');
@@ -24,10 +22,7 @@ app.use("/",login);
 app.use('/',companyHandle);
 app.use('/master',masterHandle);
 
-app.get('/', function (req, res) {
-    res.send('Hello World');
-    res.end();
-});
+
 
 var server = app.listen(8081, function () {
     var host = server.address().address

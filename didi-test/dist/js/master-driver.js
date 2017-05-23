@@ -11,7 +11,7 @@ var reg3 = /[0-9]/ //匹配数字… 暂时就这么匹配驾照吧
 	// 读取司机信息
 	$.ajax({
 		type:"get",
-		url:"testMaster/testDriver.json",
+		url:"/master/testDriver.json",
 		data:{},
 		dataType:'json',
 		success:function(data){
@@ -85,7 +85,7 @@ $("#driverTable").on("click","span.deleteDri",function(){
 	var con = confirm("确认删除该车辆的信息吗？");
 	var del = $(this).closest('tr');
 	if(con){
-		var delMessage = "delDriver:"+$(this).closest('tr').children()[2].innerHTML;//获取删除司机的编号
+		var delMessage = +$(this).closest('tr').children()[2].innerHTML;//获取删除司机的编号
 		$.ajax({
 			type:"delete",
 			url:"/master/delDriver",

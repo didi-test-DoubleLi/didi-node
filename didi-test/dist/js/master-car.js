@@ -11,7 +11,7 @@ var reg3 = / / //匹配车牌号 …… 太可怕了我先不写了
 	//读取车辆信息
 	$.ajax({
 		type:"get",
-		url:"testMaster/testCar.json",
+		url:"/master/testCar.json",
 		data:{},
 		dataType:'json',
 		success:function(data){
@@ -84,7 +84,7 @@ $("#carTable").on("click","span.deleteCar",function(){
 	var con = confirm("确认删除该车辆的信息吗？");
 	var del = $(this).closest('tr');
 	if(con){
-		var delMessage = "delCar:"+$(this).closest('tr').children()[0].innerHTML;
+		var delMessage =$(this).closest('tr').children()[0].innerHTML;
 		$.ajax({
 			type:"delete",
 			url:"/master/delCar",

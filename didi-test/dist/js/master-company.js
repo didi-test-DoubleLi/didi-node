@@ -11,7 +11,7 @@ var reg3 = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/ //匹配邮箱
 	// 读取合作伙伴信息
 	$.ajax({
 		type:"get",
-		url:"testMaster/company.json",
+		url:"/master/company.json",
 		data:{},
 		dataType:'json',
 		success:function(data){
@@ -88,7 +88,7 @@ $("#companyTable").on("click","span.deleteCom",function(){
 	var con = confirm("确认删除该公司的合作信息吗？");
 	var del = $(this).closest('tr');
 	if(con){
-		var delMessage = "delMessage:"+$(this).closest('tr').children()[0].innerHTML;//获取删除公司的名字
+		var delMessage = $(this).closest('tr').children()[0].innerHTML;//获取删除公司的名字
 		$.ajax({
 			type:"post",
 			url:"/master/delCompany",

@@ -7,7 +7,7 @@ $(function(){
 // 读取申请信息
 	$.ajax({
 		type:"get",
-		url:"testMaster/apply.json",
+		url:"/apply.json",
 		data:{},
 		dataType:'json',
 		success:function(data){
@@ -27,7 +27,7 @@ $(function(){
 		var apply = that.children();
 	$.ajax({//读取申请金额
 		type:"get",
-		url:"testMaster/apply.json",
+		url:"/master/apply.json",
 		data:{},
 		dataType:'json',
 		success:function(data){

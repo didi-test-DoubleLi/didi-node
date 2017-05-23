@@ -6,11 +6,12 @@ $(function () {
 	// 读取司机信息
 	$.ajax({
 		type: "get",
-		url: "testMaster/testDriver.json",
+		url: "/testDriver.json",
 		data: {},
 		dataType: 'json',
 		success: function (data) {
 			$.each(data, function (i, item) {
+				if(item.status==-1) return ;
 				var tr = '<tr><td></td><td>' + item.driverName + '</td><td>' + item.driverNum +
 					'</td><td>' + item.driverTel + '</td><td>' + item.driverCity + '</td><td>' +
 					item.driverPoint + '</td></tr>';
@@ -24,12 +25,13 @@ $(function () {
 	// 读取车辆信息
 	$.ajax({
 		type: "get",
-		url: "testMaster/testCar.json",
+		url: "/testCar.json",
 		data: {},
 		dataType: 'json',
 		success: function (data) {
 			$.each(data, function (i, item) {
 				// <td>辽A123456</td><td>丰田</td><td>3年</td><td>暂无</td>
+				if(item.status==-1) return ;
 				var tr = '<tr><td>' + item.carNumber + '</td><td>' + item.carBound +
 					'</td><td>' + item.useTime + '</td><td>' + item.bindDriver + '</td><td>';
 				$("#carTable").append(tr);

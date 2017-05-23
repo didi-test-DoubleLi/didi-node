@@ -7,7 +7,7 @@ $(function(){
 // 读取账单信息
 	$.ajax({
 		type:"get",
-		url:"testMaster/bill.json",
+		url:"/bill.json",
 		data:{},
 		dataType:'json',
 		success:function(data){

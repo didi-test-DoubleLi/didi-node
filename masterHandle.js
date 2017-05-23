@@ -2,6 +2,8 @@ var express = require('express');
 var app = express.Router();
 
 var json=require('./json.js');
+var cars=json.cars;
+var drivers=json.drivers;
 
 app.post('/changePwd',function(req,res){
     var data={code:1};
@@ -14,19 +16,19 @@ app.post('/changePwd',function(req,res){
     }else{
         data.code=-1;
     }
-    res.end(data);
+    res.send(data);
 });
 app.post('/agreeApply',(req,res)=>{//通过申请这个不好写
-    res.end('');
+    res.send({code:1});
 });
 app.post('/refuseApply',(req,res)=>{//同不好写
-    res.end('');
+    res.send({code:1});
 });
 app.post('/agreeBill',(req,res)=>{
-    res.end('');
+    res.send({code:1});
 });
 app.post('/refuseBill',(req,res)=>{
-    res.end('');
+    res.send({code:1});
 });
 app.post('/addCompany',(req,res)=>{
     var params=req.body;
@@ -36,11 +38,12 @@ app.post('/addCompany',(req,res)=>{
     , companyEmail=params.companyEmail
     , companyAccount=params.companyAccount;
     console.log("add company"+companyName);
-    res.end({code:1});
+    res.send({code:1});
 });
 app.post('/delCompany',(req,res)=>{
     var companyName=req.body.companyName;
-    res.end({code:1});
+    company=company.filter(company=>{return !(companyName==company.companyName);});
+    res.send({code:1});
 });
 app.post('/motifyCompany',(req,res)=>{
     var params=req.body;
@@ -50,28 +53,26 @@ app.post('/motifyCompany',(req,res)=>{
     , companyEmail=params.companyEmail
     , companyAccount=params.companyAccount;
     console.log("motify company"+companyName);
-    res.end({code:1});
+    res.send({code:1});
 });
 
 app.delete('/delCar',(req,res)=>{
     var carNumber=req.body.delNumber;
-    json.cars=json.cars.filter(car=>{
+    cars=cars.filter(car=>{
         if(car.carNumber==delNumber){
             return false;
         }
         return true;
     });
-    console.log(json.cars);
-    res.end({code:1});
+    console.log(cars);
+    res.send({code:1});
 });
 app.delete('/delDriver',(req,res)=>{
     var delNumber=req.body.delNumber;
-    json.drivers=driver.filter(driver=>{
-        if(driver.driverName==delName) return false;
-        return true;
-    });
+    drivers=drivers.filter(driver=>{return !(driver.driverNum==delNumber);})
+    console.log(drivers);
     console.log("delete driver"+ delNumber);
-    res.end({code:1});
+    res.send({code:1});
 });
 
 app.post('/motifyCar',(req,res)=>{
@@ -82,7 +83,7 @@ app.post('/motifyCar',(req,res)=>{
      ,driverNum=params.driverNum
      ,driverTel=params.driverTel
      ,driverCity=params.driverCity;
-     var driver=json.drivers.find(x=>{x.driverName==driverNum});
+     var driver=drivers.find(x=>{return x.driverName==driverNum});
      driver.driverName=driverName;
      driver.driverTel=driverTel;
      driver.driverCity=driverCity;
@@ -99,7 +100,7 @@ app.post('/motifyDriver',(req,res)=>{
      ,driverTel=params.driverTel
      ,driverCity=params.driverCity;
 
-     var driver=json.drivers.find(driver=>{driver.driverName==driverName});
+     var driver=drivers.find(driver=>{return driver.driverName==driverName});
      driver.driverPhoto=driverPhoto;
      driver.driverNum=driverNum;
      driver.driverTel=driverTel;
@@ -108,11 +109,20 @@ app.post('/motifyDriver',(req,res)=>{
      console.log("add driver:"+driverName+" tel:"+driverTel+" code number:"+driverName+" city:"+ driverCity);
      res.send(data);
 });
-
-
-
-
-
-
+app.get('/apply.json',(req,res)=>{
+    res.send(json.apply);
+});
+app.get('/bill.json',(req,res)=>{
+    res.send(json.bill);
+});
+app.get('/testCar.json',(req,res)=>{
+    res.send(cars);
+});
+app.get('/testDriver.json',(req,res)=>{
+    res.send(drivers);
+});
+app.get('/company.json',(req,res)=>{
+    res.send(company);
+});
 
 module.exports=app;
